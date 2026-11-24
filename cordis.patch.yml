@@ -1,0 +1,20 @@
+# Bundle patch for dsh-session-title-on-turnend.
+#
+# 1) 禁用基线 `session-title-llm` 行（出厂 first-prompt provider：只在首条消息
+#    后出一次标题，且用主模型）。sessionTitle 服务只允许一个 provider，让位。
+# 2) 插入本插件：监听 turn/end，用指定模型读全部用户消息，生成标题并写回。
+- id: session-title-llm
+  disabled: true
+- insert:
+    - id: session-title-on-turnend
+      name: dsh-session-title-on-turnend
+      config:
+        enabled: true
+        provider: magpie
+        model: local-31-99/qwen3.8-27b
+        maxChars: 20
+        maxInputBytes: 16384
+        maxOutputTokens: 256
+        timeoutMs: 60000
+        skipSubagents: true
+        debug: true

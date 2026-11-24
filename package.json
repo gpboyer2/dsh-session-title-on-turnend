@@ -1,0 +1,58 @@
+{
+  "name": "dsh-session-title-on-turnend",
+  "version": "0.1.0",
+  "description": "每回合回答结束后，用指定模型（默认局域网 Qwen3.8 27B）读整段对话，生成限定字符数的标题并写回会话标题。",
+  "license": "MIT",
+  "meta": {
+    "title": "会话结束自动改标题",
+    "description": "每回合回答结束后，用你指定的本地/局域网模型总结整段对话，生成 N 字符以内的标题并替换会话标题。"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpboyer2/dsh-session-title-on-turnend.git"
+  },
+  "homepage": "https://github.com/gpboyer2/dsh-session-title-on-turnend#readme",
+  "bugs": {
+    "url": "https://github.com/gpboyer2/dsh-session-title-on-turnend/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "session-title",
+    "autotitle",
+    "local-llm",
+    "on-turn-end"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    "test/"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5"
+  }
+}
