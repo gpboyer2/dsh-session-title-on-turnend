@@ -36,13 +36,14 @@ turn/end ──▶ collect all human messages in this session ──▶ pick "fi
 ## Quick start
 
 ```sh
-# 1. Clone into ~/.dsh/plugins/dsh-session-title-on-turnend
-git clone https://github.com/gpboyer2/dsh-session-title-on-turnend.git ~/.dsh/plugins/dsh-session-title-on-turnend
+# Install straight from GitHub (a CLI-managed profile such as web / main)
+dsh plugin --profile <your-profile> add github:gpboyer2/dsh-session-title-on-turnend
 
-# 2. Register with a profile (a CLI-managed profile, e.g. web / main)
+# Local development: clone to ~/.dsh/plugins/dsh-session-title-on-turnend and install through a local link
+git clone https://github.com/gpboyer2/dsh-session-title-on-turnend.git ~/.dsh/plugins/dsh-session-title-on-turnend
 dsh plugin --profile <your-profile> add link:$HOME/.dsh/plugins/dsh-session-title-on-turnend
 
-# 3. Restart DSH
+# Restart DSH
 ```
 
 The `desktop` profile is owned exclusively by DeepSeek Harness.app, and the CLI rejects it. On the desktop app, install from the in-app Plugins page, or add a symlink to the profile's `dependencies` by hand and restart.
